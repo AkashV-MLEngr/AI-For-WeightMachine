@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>FreshVision AI</title>
+
+    <link rel="stylesheet"
+</head>
+
+<body>
+
+    <!-- ========================================= -->
+    <!-- NAVBAR -->
+    <!-- ========================================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🌱 FreshVision AI
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#detection">Detection</a>
+            <a href="#training">Add Training</a>
+            <a href="#about">About</a>
+        </nav>
+
+    </header>
+
+
+    <!-- ========================================= -->
+    <!-- HERO SECTION -->
+    <!-- ========================================= -->
+
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                See What's <span>Fresh</span>
+            </h1>
+
+            <p>
+                AI-powered fruit and vegetable
+                detection using computer vision.
+            </p>
+
+            <button
+                class="primary-btn"
+                onclick="document.getElementById('detection').scrollIntoView({behavior:'smooth'})">
+
+                Start Detection 🚀
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================= -->
+    <!-- DETECTION SECTION -->
+    <!-- ========================================= -->
+
+    <section id="detection"
+             class="detection-section">
+
+        <div class="section-title">
+
+            <h2>
+                AI Detection
+            </h2>
+
+            <p>
+                Upload an image or use your camera
+                to identify fruits and vegetables.
+            </p>
+
+        </div>
+
+
+        <!-- ===================================== -->
+        <!-- DETECTION CARDS -->
+        <!-- ===================================== -->
+
+        <div class="detection-container">
+
+
+            <!-- UPLOAD CARD -->
+
+            <div class="detection-card">
+
+                <div class="card-icon">
+                    📤
+                </div>
+
+                <h3>
+                    Upload Image
+                </h3>
+
+                <p>
+                    Choose an image from your device
+                    and let AI identify it.
+                </p>
+
+                <input
+                    type="file"
+                    id="imageInput"
+                    accept="image/*"
+                    hidden
+                >
+
+                <button
+                    class="primary-btn"
+                    onclick="uploadImage()">
+
+                    Upload Image
+
+                </button>
+
+            </div>
+
+
+            <!-- CAMERA CARD -->
+
+            <div class="detection-card">
+
+                <div class="card-icon">
+                    📷
+                </div>
+
+                <h3>
+                    Use Camera
+                </h3>
+
+                <p>
+                    Turn on your camera and detect
+                    fruits and vegetables in real time.
+                </p>
+
+                <button
+                    class="primary-btn"
+                    onclick="openCamera()">
+
+                    Start Camera
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ===================================== -->
+        <!-- RESULT AREA -->
+        <!-- ===================================== -->
+
+        <div id="result"
+             class="result-section">
+
+            <h2>
+                Detection Result
+            </h2>
+
+            <div class="result-box">
+
+                <p id="resultText">
+                    Upload an image or start the camera
+                    to begin detection.
+                </p>
+
+            </div>
+
+
+            <!-- CAMERA VIDEO -->
+
+            <div id="cameraContainer">
+            </div>
+
+
+            <!-- STOP CAMERA -->
+
+            <button
+                class="stop-btn"
+                onclick="stopCamera()">
+
+                ⛔ Stop Camera
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================= -->
+    <!-- ADD TRAINING IMAGE SECTION -->
+    <!-- ========================================= -->
+
+    <section id="training"
+             class="detection-section">
+
+        <div class="section-title">
+
+            <h2>
+                ➕ Add Training Image
+            </h2>
+
+            <p>
+                Help improve FreshVision AI by adding
+                labelled fruit or vegetable images.
+            </p>
+
+        </div>
+
+
+        <div class="detection-container">
+
+
+            <!-- ================================= -->
+            <!-- TRAINING CARD -->
+            <!-- ================================= -->
+
+            <div class="detection-card">
+
+                <div class="card-icon">
+                    🧠
+                </div>
+
+                <h3>
+                    Add Image to Dataset
+                </h3>
+
+                <p>
+                    Upload an image and select an existing
+                    class or create a new class.
+                </p>
+
+
+                <!-- ================================= -->
+                <!-- IMAGE INPUT -->
+                <!-- ================================= -->
+
+                <label for="trainingImage">
+                    Select Training Image
+                </label>
+
+                <br>
+                <br>
+
+                <input
+                    type="file"
+                    id="trainingImage"
+                    accept="image/*"
+                >
+
+
+                <br>
+                <br>
+
+
+                <!-- ================================= -->
+                <!-- EXISTING CLASS -->
+                <!-- ================================= -->
+
+                <label for="trainingClass">
+                    Existing Fruit / Vegetable
+                </label>
+
+                <br>
+                <br>
+
+                <select id="trainingClass">
+
+                    <option value="">
+                        Select Existing Class
+                    </option>
+
+                    <option value="apple">
+                        Apple
+                    </option>
+
+                    <option value="banana">
+                        Banana
+                    </option>
+
+                    <option value="beetroot">
+                        Beetroot
+                    </option>
+
+                    <option value="bell pepper">
+                        Bell Pepper
+                    </option>
+
+                    <option value="cabbage">
+                        Cabbage
+                    </option>
+
+                    <option value="capsicum">
+                        Capsicum
+                    </option>
+
+                    <option value="carrot">
+                        Carrot
+                    </option>
+
+                    <option value="cauliflower">
+                        Cauliflower
+                    </option>
+
+                    <option value="chilli pepper">
+                        Chilli Pepper
+                    </option>
+
+                    <option value="corn">
+                        Corn
+                    </option>
+
+                    <option value="cucumber">
+                        Cucumber
+                    </option>
+
+                    <option value="eggplant">
+                        Eggplant
+                    </option>
+
+                    <option value="garlic">
+                        Garlic
+                    </option>
+
+                    <option value="ginger">
+                        Ginger
+                    </option>
+
+                    <option value="grapes">
+                        Grapes
+                    </option>
+
+                    <option value="jalepeno">
+                        Jalepeno
+                    </option>
+
+                    <option value="kiwi">
+                        Kiwi
+                    </option>
+
+                    <option value="lemon">
+                        Lemon
+                    </option>
+
+                    <option value="lettuce">
+                        Lettuce
+                    </option>
+
+                    <option value="mango">
+                        Mango
+                    </option>
+
+                    <option value="onion">
+                        Onion
+                    </option>
+
+                    <option value="orange">
+                        Orange
+                    </option>
+
+                    <option value="paprika">
+                        Paprika
+                    </option>
+
+                    <option value="pear">
+                        Pear
+                    </option>
+
+                    <option value="peas">
+                        Peas
+                    </option>
+
+                    <option value="pineapple">
+                        Pineapple
+                    </option>
+
+                    <option value="pomegranate">
+                        Pomegranate
+                    </option>
+
+                    <option value="potato">
+                        Potato
+                    </option>
+
+                    <option value="raddish">
+                        Raddish
+                    </option>
+
+                    <option value="soy beans">
+                        Soy Beans
+                    </option>
+
+                    <option value="spinach">
+                        Spinach
+                    </option>
+
+                    <option value="sweetcorn">
+                        Sweetcorn
+                    </option>
+
+                    <option value="sweetpotato">
+                        Sweet Potato
+                    </option>
+
+                    <option value="tomato">
+                        Tomato
+                    </option>
+
+                    <option value="turnip">
+                        Turnip
+                    </option>
+
+                    <option value="watermelon">
+                        Watermelon
+                    </option>
+
+                </select>
+
+
+                <br>
+                <br>
+
+
+                <!-- ================================= -->
+                <!-- OR -->
+                <!-- ================================= -->
+
+                <p>
+                    <strong>OR</strong>
+                </p>
+
+
+                <!-- ================================= -->
+                <!-- NEW CLASS -->
+                <!-- ================================= -->
+
+                <label for="newTrainingClass">
+                    Create New Class
+                </label>
+
+                <br>
+                <br>
+
+                <input
+                    type="text"
+                    id="newTrainingClass"
+                    placeholder="Example: peanut, coconut, mint"
+                >
+
+
+                <br>
+                <br>
+
+
+                <!-- ================================= -->
+                <!-- ADD TRAINING IMAGE BUTTON -->
+                <!-- ================================= -->
+
+                <button
+                    class="primary-btn"
+                    onclick="addTrainingImage()">
+
+                    ➕ Add to Training Dataset
+
+                </button>
+
+
+                <br>
+                <br>
+
+
+                <!-- ================================= -->
+                <!-- TRAIN MODEL BUTTON -->
+                <!-- ================================= -->
+
+                <button
+                    class="primary-btn"
+                    onclick="trainModel()">
+
+                    🔥 Train Model
+
+                </button>
+
+
+                <!-- ================================= -->
+                <!-- TRAINING STATUS -->
+                <!-- ================================= -->
+
+                <p id="trainingResult">
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================= -->
+    <!-- ABOUT SECTION -->
+    <!-- ========================================= -->
+
+    <section id="about"
+             class="about-section">
+
+        <div class="section-title">
+
+            <h2>
+                About FreshVision AI
+            </h2>
+
+            <p>
+                FreshVision AI is an intelligent
+                computer vision system designed to
+                recognize fruits and vegetables.
+            </p>
+
+        </div>
+
+
+        <div class="features">
+
+
+            <!-- FEATURE 1 -->
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🤖
+                </div>
+
+                <h3>
+                    AI Powered
+                </h3>
+
+                <p>
+                    Uses a trained deep learning model
+                    for image classification.
+                </p>
+
+            </div>
+
+
+            <!-- FEATURE 2 -->
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    📷
+                </div>
+
+                <h3>
+                    Camera Detection
+                </h3>
+
+                <p>
+                    Detect objects directly using
+                    your device camera.
+                </p>
+
+            </div>
+
+
+            <!-- FEATURE 3 -->
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🌱
+                </div>
+
+                <h3>
+                    Dynamic Classes
+                </h3>
+
+                <p>
+                    Add new fruits, vegetables,
+                    greens, nuts and other classes
+                    through user training.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================= -->
+    <!-- FOOTER -->
+    <!-- ========================================= -->
+
+    <footer>
+
+        <p>
+            © 2026 FreshVision AI
+        </p>
+
+        <p>
+            Powered by Computer Vision & AI
+        </p>
+
+    </footer>
+
+
+    <!-- ========================================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================================= -->
+
+    <script src="/script.js?v=4"></script>
+
+</body>
+
+</html>

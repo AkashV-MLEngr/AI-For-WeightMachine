@@ -1,0 +1,16 @@
+{
+    "success": true,
+    "mode": "incremental_fine_tuning",
+    "classes": 38,
+    "new_classes": [],
+    "user_images": 23,
+    "replay_per_class": 10,
+    "incremental_images": 383,
+    "training_images": 307,
+    "validation_images": 76,
+    "epochs": 2,
+    "best_validation_accuracy": 97.37,
+    "training_time_seconds": 43.32,
+    "device": "cuda",
+    "model": "ResNet18"
+}
