@@ -1,0 +1,48 @@
+================================
+FreshVision Incremental Training
+================================
+Device: cuda
+GPU: NVIDIA GeForce RTX 2050
+
+User-uploaded images:
+  arai keerai: 6
+  beetroot: 3
+  peanut: 14
+Total user images: 23
+
+Final class count: 38
+New classes: arai keerai, peanut
+
+Incremental dataset images: 383
+Training images: 307
+Validation images: 76
+
+Existing model restored.
+
+Fine-tuning layer4 + fc
+Epochs: 2
+Learning rate: 5e-05
+
+================================
+INCREMENTAL TRAINING STARTED
+================================
+  Epoch 1/2 Batch 1/20
+C:\Users\KISHORE\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\Image.py:1136: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+  Epoch 1/2 Batch 20/20
+Epoch [1/2] Loss: 0.2419 Train Accuracy: 93.16% Validation Accuracy: 96.05%
+  Epoch 2/2 Batch 1/20
+  Epoch 2/2 Batch 20/20
+Epoch [2/2] Loss: 0.1558 Train Accuracy: 96.09% Validation Accuracy: 100.00%
+
+================================
+INCREMENTAL TRAINING COMPLETED
+================================
+Model saved: D:\Fruit vegetable detection\Website\AI model\fruit_vegetable_resnet18.pth
+Classes: 38
+User images: 23
+Replay images per old class: 10
+Best validation accuracy: 100.00%
+Training time: 1.26 minutes
+
+Done!

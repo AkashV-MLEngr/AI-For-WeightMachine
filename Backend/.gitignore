@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+combined_training_data/
+training_data/
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.zip
+.env
+venv/
+.venv/*.log

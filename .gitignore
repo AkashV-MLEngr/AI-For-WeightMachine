@@ -10,3 +10,5 @@ dist/
 !.env.example
 AI model_backup/
 *_backup.*
+
+**/.git_backup/
